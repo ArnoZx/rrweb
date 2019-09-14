@@ -298,4 +298,5 @@ export enum ReplayerEvents {
   SkipEnd = 'skip-end',
   MouseInteraction = 'mouse-interaction',
   Input = 'input',
+  MetaChange = 'meta-change',
 }

@@ -62,7 +62,7 @@ describe('fast forward', function(this: ISuite) {
       const events = JSON.parse(eventsStr);
       await this.page.evaluate(`const events = ${eventsStr}`);
       const duration = await this.page.evaluate(() => {
-        const { Replayer } = (window as IWindow).rrweb;
+        const { Replayer } = ((window as unknown) as IWindow).rrweb;
         const replayer = new Replayer(events);
         const start = performance.now();
         const lastTimestamp = events[events.length - 1].timestamp;

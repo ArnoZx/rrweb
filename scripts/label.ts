@@ -63,7 +63,9 @@ export async function analyze(obj: any) {
           return new Promise((resolve, reject) => {
             try {
               window.onerror = error => reject(error);
-              const replayer = new (window as IWindow).rrweb.Replayer(events);
+              const replayer = new ((window as unknown) as IWindow).rrweb.Replayer(
+                events,
+              );
               replayer.on(
                 'mouse-interaction',
                 (payload: { target: any; type: any }) => {

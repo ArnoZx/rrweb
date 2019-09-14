@@ -8,3 +8,6 @@ es
 lib
 
 temp
+
+scripts/src
+scripts/dest

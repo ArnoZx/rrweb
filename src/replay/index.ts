@@ -217,11 +217,17 @@ export class Replayer {
       case EventType.Load:
         break;
       case EventType.Meta:
-        castFn = () =>
+        castFn = () => {
+          this.emitter.emit(ReplayerEvents.MetaChange, {
+            href: event.data.href,
+            width: event.data.width,
+            height: event.data.height,
+          });
           this.emitter.emit(ReplayerEvents.Resize, {
             width: event.data.width,
             height: event.data.height,
           });
+        };
         break;
       case EventType.FullSnapshot:
         castFn = () => {

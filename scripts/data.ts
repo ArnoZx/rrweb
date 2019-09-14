@@ -1,9 +1,10 @@
 import * as path from 'path';
 import * as fs from 'fs';
-import { analyze } from './label';
+// import { analyze } from './label';
+import { analyze } from './getClicks';
 
-const dir = path.resolve(__dirname, '../../../new-data/project-r');
-const dest = path.resolve(__dirname, '../../../new-data/result');
+const dir = path.resolve(__dirname, './src');
+const dest = path.resolve(__dirname, './dest');
 
 const files = fs
   .readdirSync(dir)
@@ -33,7 +34,6 @@ function group(arr: any[]) {
       const obj = group(data);
       const meta: Record<string, string[]> = await analyze(obj);
       result[file] = meta;
-      console.log(meta);
     } catch (error) {
       console.log(file, error.message);
     }

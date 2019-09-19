@@ -1,4 +1,4 @@
-import { rebuild, buildNodeWithSN } from 'rrweb-snapshot';
+import { rebuild, buildNodeWithSN, snapshot } from 'rrweb-snapshot';
 import * as mittProxy from 'mitt';
 import * as smoothscroll from 'smoothscroll-polyfill';
 import Timer from './timer';
@@ -85,6 +85,10 @@ export class Replayer {
 
   public on(event: string, handler: Handler) {
     this.emitter.on(event, handler);
+  }
+
+  public snapshot() {
+    return snapshot(this.iframe.contentDocument!)
   }
 
   public setConfig(config: Partial<playerConfig>) {

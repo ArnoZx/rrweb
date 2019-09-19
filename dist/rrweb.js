@@ -2227,6 +2227,9 @@ var rrweb = (function (exports) {
         Replayer.prototype.on = function (event, handler) {
             this.emitter.on(event, handler);
         };
+        Replayer.prototype.snapshot = function () {
+            return snapshot(this.iframe.contentDocument);
+        };
         Replayer.prototype.setConfig = function (config) {
             var _this = this;
             Object.keys(config).forEach(function (key) {

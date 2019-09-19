@@ -1,7 +1,7 @@
 import * as path from 'path';
 import * as fs from 'fs';
-// import { analyze } from './label';
-import { analyze } from './getClicks';
+import { analyze } from './label';
+// import { analyze } from './getClicks';
 
 const dir = path.resolve(__dirname, './src');
 const dest = path.resolve(__dirname, './dest');

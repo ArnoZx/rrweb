@@ -183,7 +183,7 @@ export class Replayer {
     this.iframe = document.createElement('iframe');
     this.iframe.setAttribute('sandbox', 'allow-same-origin');
     this.iframe.setAttribute('scrolling', 'no');
-    this.iframe.setAttribute('style', 'pointer-events: none; display: none');
+    this.iframe.setAttribute('style', 'pointer-events: none;');
     this.wrapper.appendChild(this.iframe);
   }
 
@@ -298,7 +298,6 @@ export class Replayer {
     mirror.map = rebuild(
       event.data.node,
       this.iframe.contentDocument!,
-      false,
     )[1];
     const styleEl = document.createElement('style');
     const { documentElement, head } = this.iframe.contentDocument!;
@@ -386,7 +385,6 @@ export class Replayer {
             this.iframe.contentDocument!,
             mirror.map,
             true,
-            false,
           ) as Node;
           let previous: Node | null = null;
           let next: Node | null = null;

@@ -2308,7 +2308,7 @@ var rrweb = (function (exports) {
             this.iframe = document.createElement('iframe');
             this.iframe.setAttribute('sandbox', 'allow-same-origin');
             this.iframe.setAttribute('scrolling', 'no');
-            this.iframe.setAttribute('style', 'pointer-events: none; display: none');
+            this.iframe.setAttribute('style', 'pointer-events: none;');
             this.wrapper.appendChild(this.iframe);
         };
         Replayer.prototype.handleResize = function (dimension) {
@@ -2405,7 +2405,7 @@ var rrweb = (function (exports) {
                 console.warn('Found unresolved missing node map', this.missingNodeRetryMap);
             }
             this.missingNodeRetryMap = {};
-            mirror.map = rebuild(event.data.node, this.iframe.contentDocument, false)[1];
+            mirror.map = rebuild(event.data.node, this.iframe.contentDocument)[1];
             var styleEl = document.createElement('style');
             var _a = this.iframe.contentDocument, documentElement = _a.documentElement, head = _a.head;
             documentElement.insertBefore(styleEl, head);
@@ -2475,7 +2475,7 @@ var rrweb = (function (exports) {
                         if (!parent) {
                             return queue_1.push(mutation);
                         }
-                        var target = buildNodeWithSN(mutation.node, _this.iframe.contentDocument, mirror.map, true, false);
+                        var target = buildNodeWithSN(mutation.node, _this.iframe.contentDocument, mirror.map, true);
                         var previous = null;
                         var next = null;
                         if (mutation.previousId) {
